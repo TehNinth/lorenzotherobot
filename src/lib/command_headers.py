@@ -195,7 +195,9 @@ commands = {
         'limit': 0,
         'argc': 1,
         'return': 'command',
-        'usage': "!party [position_to_check(1-6)/'members'/username]"
+        'usage': "!party [position_to_check(1-6)/'members'/username]",
+        'whisper': 1,
+        'wtargets': 'sender'
                
     },
             
@@ -203,7 +205,9 @@ commands = {
         'limit': 0,
         'argc': 2,
         'return': 'command',
-        'usage': "!battle [position_to_battle_with] [opponent_username]"
+        'usage': "!battle [position_to_battle_with] [opponent_username]",
+        'whisper': 1,
+        'wtargets': 'both'
                 
     },
             
