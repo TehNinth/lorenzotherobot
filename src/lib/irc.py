@@ -76,7 +76,7 @@ class irc:
         else:
             return True
 
-    def send_message(self, channel, message):
+    def send_message(self, channel, message, whisper=0):
         # message can be any of the formats:
         # None - sends nothing
         # String - sends this line as a message
@@ -85,9 +85,12 @@ class irc:
         #  -- [["1", ["2", "3"]], "4"] will send "1", "2", "3", "4".
         if not message:
           return
-
+        
+        if whisper:
+            whisper_text="/w "
+        
         if isinstance(message, basestring):
-          self.sock.send('PRIVMSG %s :%s\r\n' % (channel, message.encode('utf-8')))
+          self.sock.send('PRIVMSG %s :%s%s\r\n' % (channel, whisper_text, message.encode('utf-8')))
 
         if type(message) == list:
           for line in message:
